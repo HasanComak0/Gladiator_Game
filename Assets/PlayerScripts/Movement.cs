@@ -9,7 +9,7 @@ public class Movement : MonoBehaviour
     [SerializeField] LayerMask ground;
     [SerializeField] private GameObject groundCheck;
     [SerializeField] private float groundCheckRadius;
-    Vector3 direction;//Hareket yönü için.
+    Vector3 direction;//Hareket yï¿½nï¿½ iï¿½in.
     Rigidbody rb;
 
 
@@ -44,17 +44,17 @@ public class Movement : MonoBehaviour
     }
     private void LateUpdate()
     {
-        fpsCam.transform.localRotation = Quaternion.Euler(rotX, 0, 0);//Kamerayý Hareket ettirmek için.
+        fpsCam.transform.localRotation = Quaternion.Euler(rotX, 0, 0);//Kamerayï¿½ Hareket ettirmek iï¿½in.
     }
     private void GetMouseAxis()
     {
         mouseX = Input.GetAxis("Mouse X") * sensivity * Time.deltaTime;
         mouseY = Input.GetAxis("Mouse Y") * sensivity * Time.deltaTime;
 
-        rotX -= mouseY;//x ekseninde y ile dönüyoz ya ondan yazdým
+        rotX -= mouseY;//x ekseninde y ile dï¿½nï¿½yoz ya ondan yazdï¿½m
         rotX = Mathf.Clamp(rotX, -90f, 90f);
 
-        rotY += mouseX;//Yapmazsak direk mouseX yazarsak hep +1/-1 alacaðý için ayný yerde durur. 
+        rotY += mouseX;//Yapmazsak direk mouseX yazarsak hep +1/-1 alacaï¿½ï¿½ iï¿½in aynï¿½ yerde durur. 
         transform.localRotation = Quaternion.Euler(0, rotY, 0);
     }
     private void PlayerMovement()
@@ -63,14 +63,14 @@ public class Movement : MonoBehaviour
         float ver = Input.GetAxis("Vertical");
 
         direction = new Vector3(hor, 0f, ver);
-        //transform.TransformDirection ekledik çünkü kendi local pozisyonunda ilerlemesi için.
+        //transform.TransformDirection ekledik ï¿½ï¿½nkï¿½ kendi local pozisyonunda ilerlemesi iï¿½in.
         rb.MovePosition(transform.position + transform.TransformDirection(direction * Time.fixedDeltaTime * moveSpeed));
 
         
     }
     private void Jump()
     {
-        rb.AddForce(Vector3.up * jumpSpeed,ForceMode.Impulse);//Impulse tek seferlik kuvvet uygulamak için.
+        rb.AddForce(Vector3.up * jumpSpeed,ForceMode.Impulse);//Impulse tek seferlik kuvvet uygulamak iï¿½in.
     }
     private bool isGrounded()
     {

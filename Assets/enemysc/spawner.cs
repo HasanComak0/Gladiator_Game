@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public class spawner : MonoBehaviour
+public class Spawner : MonoBehaviour
 {
     public float sayac;
-    public float aralik=5;
 
     public GameObject enemy;
 
